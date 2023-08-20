@@ -1,0 +1,80 @@
+class E_wallet():
+    
+    def __init__(self):
+        self.PIN = ''
+        self.balance = 0
+        self.offers = 'Earn 100 on 1st referral'
+        self.menu()
+        
+    def menu(self):
+        input_from_user = input("""
+                        Welcome to e-wallet
+                        1. Enter 1 to set PIN
+                        2. Enter 2 to add money
+                        3. Enter 3 to check balance
+                        4. Enter 4 to check offers
+                        5. Enter 5 to send money
+                        6. Enter 6 to know last trans.
+                        7. Enter 7 to change PIN
+                        8. Enter 8 to Exit 
+                        """)
+        if input_from_user == "1":
+            self.set_PIN()
+        
+        elif input_from_user == "2":
+            self.add_money()
+            
+        elif input_from_user == "3":
+            self.check_balance()  # Added parentheses
+            
+        elif input_from_user == "4":
+            print(self.offers)
+            
+        elif input_from_user == "5":
+            self.send_money()
+            
+        elif input_from_user == "6":
+            print('know last trans.')
+            
+        elif input_from_user == "7":
+            self.change_PIN()
+          
+        elif input_from_user == "8":
+            print('Thank You, see you again')
+            
+        else:
+            print('wrong input, you exited from e-Wallet')   
+            
+            
+    def set_PIN(self):
+        self.PIN = input('enter PIN')
+        print('Your PIN is saved')
+        
+    def add_money(self):
+        self.balance += int(input('add amount to e_wallet'))  
+        print('amount added to e_wallet')
+        
+    def check_balance(self):
+        print(self.balance)
+        
+    def send_money(self):
+        amount = int(input('Enter Amount to send'))  
+        if amount >= self.balance:  
+            print('insufficient Balance')
+        else:
+            print('Amount sent')
+            
+    def change_PIN(self):  
+        CP = input('enter current PIN')
+        if CP == self.PIN:
+            NP = input('enter new PIN')
+            self.PIN = NP
+        else:
+            print('wrong PIN')
+               
+# Instantiation of class  
+kishor1 = E_wallet()
+kishor1.add_money()
+kishor1.check_balance()
+kishor1.send_money()
+kishor1.change_PIN()
